@@ -10,6 +10,9 @@ var images = [];
 var timerId;
 var delay = 10 * 1000;
 var fps = 3.0;
+var dir = 'video';
+var fs = require('fs');
+fs.mkdir(dir, function() {});
 
 function putVideo() {
     var frames = [];
@@ -45,7 +48,7 @@ function putVideo() {
         ('0' + date.getSeconds()).slice(-2);
     console.log('write: [' + fmtd + '.webm' + ']');
     var fs = require('fs');
-    fs.writeFile('video/' + fmtd + '.webm', buffer);
+    fs.writeFile(dir + '/' + fmtd + '.webm', buffer);
 
     images = [];
     timerId = null;
